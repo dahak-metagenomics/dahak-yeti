@@ -6,6 +6,8 @@
 
 `dahak-yeti` contains dotfiles and scripts to prep AWS beefy nodes to run dahak.
 
+![Screen shot after installing](/screen.png)
+
 ## Installing Dotfiles and Scripts
 
 Installing the dotfiles and scripts is a three step process that only requires git:
