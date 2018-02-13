@@ -11,5 +11,7 @@ fi
 
 # Install pyenv 
 curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
-echo 'export PATH="~/.pyenv/bin:$PATH"' >> ~/.bash_profile
+
+## This should already be in ~/.bash_profile
+#echo 'export PATH="~/.pyenv/bin:$PATH"' >> ~/.bash_profile
 

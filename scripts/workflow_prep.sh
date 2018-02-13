@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Prepare the workflow for Snakemake and Singularity
+# Prepare the workflow for Singularity
 
 if [ "$(id -u)" != "0" ]; then
     echo ""
@@ -12,49 +12,18 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 
-
 # ================================
 # Install Prerequisites:
 
-# Update aptitude and install stuff
+# Update aptitude and install dependencies
 apt-get -y update
 
 apt-get -y install zlib1g-dev
 apt-get -y install ncurses-dev
 
-# Update pip as normal user
-su - ubuntu -c 'pip install --upgrade pip'
-
-# Install Open Science Framework CLI client
-su - ubuntu -c 'pip install osfclient'
-
 # Install Docker
 wget -qO- https://get.docker.com/ | sh
 usermod -aG docker ubuntu
-
-
-
-# ================================
-# Install Snakemake:
-
-CONDA="miniconda3-4.3.30"
-
-# Use pyenv to install conda 
-pyenv install $CONDA
-
-# Set that as the distro of choice
-pyenv global $CONDA
-
-# This sets the $PATH shims so condaa is the pyenv conda
-eval "$(pyenv init -)"
-
-conda config --add channels r
-conda config --add channels defaults
-conda config --add channels conda-forge
-conda config --add channels bioconda
-
-conda install -c bioconda snakemake
-
 
 
 # ================================
@@ -65,7 +34,4 @@ apt-key adv --recv-keys --keyserver hkp://pool.sks-keyservers.net:80 0xA5D32F012
 apt-get update
 apt-get install -y singularity-container
 singularity --version
-
-
-
 
