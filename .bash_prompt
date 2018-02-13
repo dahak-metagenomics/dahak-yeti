@@ -41,14 +41,8 @@ else
 	white="\e[1;37m";
 fi;
 
-# User color depends on machine
-if [[ "${HOSTNAME}" == "rojo" ]]; then
-    userStyle="${red}"
-elif [[ "${HOSTNAME}" == "jupiter" ]]; then
-    userStyle="${green}"
-else
-    userStyle="${orange}"
-fi
+# Yeti is purple
+userStyle="${purple}"
 
 # Highlight the hostname when connected via SSH.
 if [[ "${SSH_TTY}" ]]; then
