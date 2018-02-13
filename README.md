@@ -19,7 +19,7 @@ If `which git` returns nothing, you'll need to install it: `apt-get install git`
 Start by deploying the repo on the AWS node:
 
 ```
-git clone https://charlesreid1.com:3000/dotfiles/dahak-yeti.git
+git clone https://github.com/charlesreid1/dahak-yeti.git
 cd dahak-yeti/
 ```
 
@@ -29,7 +29,7 @@ Next, install the dotfiles (answer `y` when prompted):
 
 ```
 $ ./bootstrap.sh
-From https://charlesreid1.com:3000/dotfiles/dahak-yeti
+From https://github.com/charlesreid1/dahak-yeti.git
  * branch            master     -> FETCH_HEAD
 Already up-to-date.
 This may overwrite existing files in your home directory. Are you sure? (y/n)  y
