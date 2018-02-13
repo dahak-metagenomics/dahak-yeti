@@ -30,7 +30,7 @@ conda config --add channels defaults
 conda config --add channels conda-forge
 conda config --add channels bioconda
 
-conda install -c bioconda snakemake
+conda install --yes -c bioconda snakemake
 
 
 # ===============================
