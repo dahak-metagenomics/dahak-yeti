@@ -9,7 +9,7 @@
 EDITOR="vim"
 
 # Set $PATH here
-#PATH="/usr/local/bin:$PATH"
+export PATH="${HOME}/.pyenv/bin:$PATH"
 
 
 
