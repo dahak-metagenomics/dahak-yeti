@@ -1,10 +1,18 @@
 # dahak-yeti 
 
-Dotfiles for setting up a yeti node (AWS 2x large node) for running dahak.
+[`dahak`](https://github.com/dahak-metagenomics/dahak/) is a metagenomics package.
 
-## Installing
+`yeti` is the nickname for AWS beefy nodes (2x large nodes).
 
-Installing these dotfilese is a three step process:
+`dahak-yeti` contains dotfiles and scripts to prep AWS beefy nodes to run dahak.
+
+## Installing Dotfiles and Scripts
+
+Installing the dotfiles and scripts is a three step process that only requires git:
+
+### Before You Begin
+
+If `which git` returns nothing, you'll need to install it: `apt-get install git`
 
 ### Step 1
 
@@ -33,9 +41,9 @@ Log out and log back in.
 
 ## Using
 
-Edit path in `.bash_profile`. 
+The `$PATH` is set in `.bash_profile`
 
-Edit prompt in `.bash_prompt`.
+The prompt is set in `.bash_prompt`
 
-Edit aliases in `.aliases`.
+The aliases are set in `.aliases`
 
