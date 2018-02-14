@@ -23,4 +23,3 @@ do
     rm -rf ${tar_file}
 done
 
-
