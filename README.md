@@ -6,17 +6,23 @@
 
 `dahak-yeti` contains dotfiles and scripts to prep AWS beefy nodes to run dahak.
 
-Once you install the dotfiles you'll have a nice pink prompt.
+These dotfiles will give you a nice pink prompt.
 
 ![Screen shot after installing](/screen.png)
 
 ## Installing Dotfiles and Scripts
 
-Installing the dotfiles and scripts is a three step process that only requires git:
+Installing the dotfiles and scripts is a three step process that only requires git.
 
 ### Before You Begin
 
 If `which git` returns nothing, you'll need to install it: `apt-get install git`
+
+Make sure you set a password for the `ubuntu` user:
+
+```
+sudo passwd ubuntu
+```
 
 ### Step 1
 
