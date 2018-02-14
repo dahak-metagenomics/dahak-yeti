@@ -3,7 +3,7 @@
 mkdir -p /tmp/data
 cd /tmp/data
 
-tar_files = ( 
+tar_files=( \
 "microbe-refseq-sbt-k51-2017.05.09.tar.gz"
 "microbe-refseq-sbt-k31-2017.05.09.tar.gz"
 "microbe-refseq-sbt-k21-2017.05.09.tar.gz"
