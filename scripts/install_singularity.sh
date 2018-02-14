@@ -35,3 +35,9 @@ apt-get update
 apt-get install -y singularity-container
 singularity --version
 
+echo ""
+echo ""
+echo "Singularity is now installed. Log out and log back in for docker group to take effect."
+echo ""
+echo ""
+
