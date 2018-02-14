@@ -1,7 +1,11 @@
 #!/bin/bash
+#
+# Prepare for taxonomic classification
+# by downloading SBT (sequence bloom trees)
+# for microbial genomes in refseq and genbank.
 
-mkdir -p /tmp/data
-cd /tmp/data
+mkdir -p data/
+cd data/
 
 tar_files=( \
 "microbe-refseq-sbt-k51-2017.05.09.tar.gz"
@@ -19,5 +23,4 @@ do
     rm -rf ${tar_file}
 done
 
-./get_trimmed_data.sh
 

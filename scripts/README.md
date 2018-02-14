@@ -2,9 +2,27 @@
 
 This contains scripts to prepare for Dahak workflows.
 
-* `get_trimmed_data.sh` - downloads trimmed data from OSF
-* `install_pyenv.sh` - install pyenv
-* `install_snakemake.sh` - install conda, set up conda channels, install snakemake
-* `taxclass_prep.sh` - prepare for taxonomic classification
-* `workflow_prep.sh` - prepare for all workflows
+Run scripts in the following order:
+
+
+
+**General stuff:**
+
+`install_pyenv.sh` - installs pyenv for control over python verison.
+
+`install_snakemake.sh` - installs snakemake using miniconda.
+
+`install_singularity.sh` - installs singularity
+
+
+
+**Taxonomic classification:**
+
+`prepare_biocontainers.sh` - download Docker containers from biocontainers
+
+`get_sbt.sh` - get sequence bloom trees for microbial genomes
+
+`get_trimmed_data.sh` - get trimmed data from OSF from URLs in `trimmed_data.dat`
+
+`calculate_signatures.sh` - run sourmash biocontainer to compute signatures
 
