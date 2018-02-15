@@ -16,7 +16,7 @@ do
     else
         echo "Okay I'm gonna run Docker now"
 
-        docker run -v ${PWD}:/data quay.io/biocontainers/sourmash:2.0.0a2--py36_0 sourmash compute \
+        docker run -v ${PWD}:/data quay.io/biocontainers/sourmash:2.0.0a3--py36_0 sourmash compute \
                 --merge /data/${base}.trim2.fq.gz \
                 --track-abundance \
                 --scaled 10000 -k 21,31,51 \
@@ -40,7 +40,7 @@ do
     else
         echo "Okay I'm gonna run Docker now"
 
-        docker run -v ${PWD}:/data quay.io/biocontainers/sourmash:2.0.0a2--py36_0 sourmash compute \
+        docker run -v ${PWD}:/data quay.io/biocontainers/sourmash:2.0.0a3--py36_0 sourmash compute \
             --merge /data/${base}.trim30.fq.gz \
             --track-abundance \
             --scaled 10000 -k 21,31,51 \
