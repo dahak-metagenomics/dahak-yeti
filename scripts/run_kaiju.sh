@@ -1,13 +1,5 @@
 #!/bin/bash
 
-mkdir kaijudb
-cd kaijudb
-curl -LO http://kaiju.binf.ku.dk/database/kaiju_index_nr_euk.tgz
-tar zxvf kaiju_index_nr_euk.tgz
-rm -r kaiju_index_nr_euk.tgz
-cd ../data
-
-
 for filename in *1.trim2.fq.gz
 do
     #Remove _1.trim2.fq from file name to create base
