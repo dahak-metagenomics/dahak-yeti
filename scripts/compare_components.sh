@@ -1,4 +1,7 @@
 #!/bin/bash
+# 
+# Skipping this script for now,
+# due to missing JSON files.
 
 for kmer_len in 21 31 51
 do

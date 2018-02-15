@@ -23,3 +23,20 @@ do
     rm -rf ${tar_file}
 done
 
+#
+# The individual signatures for the above SBTs were calculated as follows:
+# 
+# sourmash compute -k 4,5 \
+#    -n 2000 \
+#    --track-abundance \
+#    --name-from-first \
+#    -o {output} \
+#    {input}
+#
+#+sourmash compute -k 21,31,51 \
+#     --scaled 2000 \
+#     --track-abundance \
+#     --name-from-first \
+#     -o {output} \
+#     {input}
+#

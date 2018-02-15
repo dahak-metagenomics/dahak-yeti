@@ -8,7 +8,8 @@
 
 ./calculate_signatures.sh
 
-./compare_components.sh
+## Skipping this script
+#./compare_components.sh
 
 ./unpack_run_kaiju.sh
 
