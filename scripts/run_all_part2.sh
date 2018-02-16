@@ -4,7 +4,7 @@
 
 ./get_sbt.sh
 
-./get_trimmed_data.sh
+./get_trimmed_data.py
 
 ./calculate_signatures.sh
 

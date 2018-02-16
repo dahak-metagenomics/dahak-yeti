@@ -6,19 +6,19 @@ do
     base=$(basename $filename _1.trim2.fq.gz)
     echo $base
 
-    docker run -v ${PWD}:/data quay.io/biocontainers/kaiju:1.5.0--pl5.22.0_0 kaiju \
+    # Command to run container interactively:
+    #docker run -it --rm -v ${PWD}:/data quay.io/biocontainers/kaiju:1.5.0--pl5.22.0_0 /bin/bash
+
+    docker run -it --rm -v ${PWD}:/data quay.io/biocontainers/kaiju:1.5.0--pl5.22.0_0 \
+        kaiju \
         -x \
         -v \
         -t /data/kaijudb/nodes.dmp \
         -f /data/kaijudb/kaiju_db_nr_euk.fmi \
         -i /data/${base}_1.trim2.fq.gz \
         -j /data/${base}_2.trim2.fq.gz \
+        -o /data/${base}.kaiju_output.trim2.out \
         -z 4
-
-        #-o /data/${base}.kaiju_output.trim2.out \
-
-    exit 1;
-
 done
 
 for filename in *1.trim30.fq.gz
@@ -27,7 +27,8 @@ do
     base=$(basename $filename _1.trim30.fq.gz)
     echo $base
 
-    docker run -v ${PWD}:/data quay.io/biocontainers/kaiju:1.5.0--pl5.22.0_0 kaiju \
+    docker run -v ${PWD}:/data quay.io/biocontainers/kaiju:1.5.0--pl5.22.0_0 \
+        kaiju \
         -x \
         -v \
         -t /data/kaijudb/nodes.dmp \
