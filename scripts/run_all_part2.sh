@@ -11,7 +11,9 @@
 ## Skipping this script
 #./compare_components.sh
 
-./unpack_run_kaiju.sh
+./unpack_kaiju.sh
+
+./run_kaiju.sh
 
 ./kaiju_to_korona.sh
 
