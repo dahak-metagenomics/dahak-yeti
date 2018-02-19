@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import getpass
-import tempfile
 import subprocess
+
 
 def install_pyenv():
     user = getpass.getuser()
@@ -14,6 +14,7 @@ def install_pyenv():
 
         # We don't need to add ~/.pyenv/bin to $PATH,
         # it is already done.
+
 
 if __name__=="__main__":
     install_pyenv()

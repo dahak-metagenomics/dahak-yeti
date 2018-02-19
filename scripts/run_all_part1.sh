@@ -1,8 +1,8 @@
 #!/bin/bash
 
-./install_pyenv.sh
+./install_pyenv.py
 
-./install_snakemake 
+./install_snakemake.py
 
-sudo ./install_singularity.sh 
+sudo ./install_singularity.py 
 

@@ -13,11 +13,12 @@
 
 ./unpack_kaiju.sh
 
-./run_kaiju.sh
-
-./kaiju_to_korona.sh
-
-./filter_taxa.sh
-
-./visualize_korona.sh
+## Start from here...
+#./run_kaiju.sh
+#
+#./kaiju_to_korona.sh
+#
+#./filter_taxa.sh
+#
+#./visualize_korona.sh
 
