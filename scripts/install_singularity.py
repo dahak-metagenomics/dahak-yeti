@@ -30,6 +30,9 @@ def install_singularity():
         wgetproc = subprocess.Popen(["wget","-O-","http://neuro.debian.net/lists/xenial.us-ca.full | tee /etc/apt/sources.list.d/neurodebian.sources.list"],stdout=subprocess.PIPE)
         bashproc = subprocess.Popen(["/bin/bash"], stdin=wgetproc.stdout, stdout=subprocess.PIPE)
 
+        keyupdatecmd = ["apt-key","adv","--recv-keys","--keyserver","hkp://pool.sks-keyservers.net:80","0xA5D32F012649A5A9"]
+        subprocess.call(keyupdatecmd)
+
         subprocess.call(aptupdatecmd)
         subprocess.call(aptinstallcmd+["singularity-container"])
         
