@@ -43,5 +43,5 @@ def install_singularity():
         print("-"*40)
 
 if __name__=="__main__":
-    isntall_singularity()
+    install_singularity()
 
