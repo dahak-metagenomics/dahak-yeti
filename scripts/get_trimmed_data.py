@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # 
 # If you have not made trimmed data,
 # you can download it.

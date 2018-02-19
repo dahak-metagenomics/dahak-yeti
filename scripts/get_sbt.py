@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import os
 import subprocess
 
@@ -13,8 +13,6 @@ for prefix in ["refseq","genbank"]:
         url = "https://s3-us-west-1.amazonaws.com/spacegraphcats.ucdavis.edu/%s"%(filename)
         subprocess.call(["curl","-O",url])
 
-
-#
 # The individual signatures for the above SBTs were calculated as follows:
 # 
 # sourmash compute -k 4,5 \
@@ -24,10 +22,9 @@ for prefix in ["refseq","genbank"]:
 #    -o {output} \
 #    {input}
 #
-#+sourmash compute -k 21,31,51 \
+# sourmash compute -k 21,31,51 \
 #     --scaled 2000 \
 #     --track-abundance \
 #     --name-from-first \
 #     -o {output} \
 #     {input}
-#
