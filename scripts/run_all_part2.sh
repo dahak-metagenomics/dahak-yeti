@@ -17,7 +17,7 @@
 
 ./kaiju2krona.py
 
-./filter_taxa.sh
+./filter_taxa.py
 
-#./visualize_korona.sh
+./visualize_korona.py
 
