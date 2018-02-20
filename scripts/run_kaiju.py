@@ -34,7 +34,7 @@ def run_kaiju():
 
                 cmd = ["docker","run"]
                 cmd += ["-v","%s:%s"%(pwd,datadir)]
-                cmd += ["quay.io/biocontainers/kaiju:1.5.0--pl5.22.0_0"]
+                cmd += ["quay.io/biocontainers/kaiju:1.6.1--pl5.22.0_0"]
                 cmd += ["kaiju"]
                 cmd += ["-x","-v"]
                 cmd += ["-t","%s/%s/nodes.dmp"%(datadir,kaijudirname)]
