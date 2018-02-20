@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import glob
+import glob, os, re
 import subprocess
 
 
@@ -37,14 +37,14 @@ def run_kaiju():
                 cmd += ["quay.io/biocontainers/kaiju:1.5.0--pl5.22.0_0"]
                 cmd += ["kaiju"]
                 cmd += ["-x","-v"]
-                cmd += ["-t","/%s/%s/nodes.dmp"%(datadir,kaijudirname)]
-                cmd += ["-f","/%s/%s/kaiju_db_nr_euk.fmi"]
-                cmd += ["-i","/%s/%s%s"%(datadir,prefix,suffix1)]
-                cmd += ["-j","/%s/%s%s"%(datadir,prefix,suffix2)]
-                cmd += ["-o","/%s/%s"%(datadir,targetfile)]
+                cmd += ["-t","%s/%s/nodes.dmp"%(datadir,kaijudirname)]
+                cmd += ["-f","%s/%s/kaiju_db_nr_euk.fmi"%(datadir,kaijudirname)]
+                cmd += ["-i","%s/%s%s"%(datadir,prefix,suffix1)]
+                cmd += ["-j","%s/%s%s"%(datadir,prefix,suffix2)]
+                cmd += ["-o","%s/%s"%(datadir,targetfile)]
 
                 print("Running this docker command from dir %s:"%(pwd))
-                print(cmd)
+                print(" ".join(cmd))
                 print()
 
                 subprocess.call(cmd, cwd=pwd)
