@@ -24,8 +24,10 @@ def run_kaiju():
     for (suffix1, suffix2, kaijusuffix) in suffixes:
 
         for filename in glob.glob("*"+suffix1):
+
             prefix = get_prefix(filename,suffix1)
-            targetfile = prefix+kaijusuffix
+            targetfile = prefix + kaijusuffix
+
             if(os.path.isfile(targetfile)):
                 print("Skipping file %s, file exists."%(targetfile))
             else:
