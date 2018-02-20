@@ -31,7 +31,7 @@ def filter_taxa():
             # Kaiju report,
             # filtering taxa
 
-            reportoutfile = prefix + ".kaiju_out_krona.summary"
+            reportoutfile = prefix + ".kaiju_out_krona.1percenttotal.summary"
 
             if(os.path.isfile(reportoutfile)):
                 print("Skipping file %s, file exists."%(reportoutfile))
@@ -48,6 +48,7 @@ def filter_taxa():
                 cmd += ["-n","%s/%s/names.dmp"%(datadir,kaijudirname)]
                 cmd += ["-i","%s/%s"%(datadir, filename)]
                 cmd += ["-r","genus"]
+                cmd += ["-m","1"]
                 cmd += ["-o","%s/%s"%(datadir, reportoutfile)]
 
                 print("Running this docker command from dir %s:"%(pwd))
