@@ -8,3 +8,6 @@ def get_prefix(filename,suffix):
     prefix = s.group(1)
     return prefix
 
+if __name__=="__main__":
+    print("Do not run this script directly")
+

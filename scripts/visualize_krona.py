@@ -4,26 +4,17 @@ import subprocess
 from get_prefix import get_prefix
 
 
-def get_prefix(filename,suffix):
-    """
-    Strip the suffix from a filename
-    """
-    s = re.search("^(.*)%s"%(suffix),filename)
-    prefix = s.group(1)
-    return prefix
-
-
 def pull_krona():
     # Download the krona image from quay.io so we can visualize the results from kaiju:
-    kronaurl = quay.io/biocontainers/krona:2.7--pl5.22.0_1
+    kronaurl = "quay.io/biocontainers/krona:2.7--pl5.22.0_1"
     subprocess.call(["docker","pull",kronaurl])
 
 
-def visualize_all():
+def visualize_krona():
     kaijudirname = "kaijudb"
     cases = ["kaiju_out_krona",
-                "kaiju_out_krona.1percenttotal",
-                "kaiju_out_krona.1percentclassified"]
+             "kaiju_out_krona.1percenttotal",
+             "kaiju_out_krona.1percentclassified"]
 
     for case in cases:
 
@@ -36,7 +27,7 @@ def visualize_all():
 
             prefix = get_prefix(filename,suffix)
 
-            htmlname = prefix + "." + htmlsuffix
+            htmlname = prefix + htmlsuffix
 
             if(os.path.isfile(htmlname)):
                 print("Skipping file %s, file exists."%(htmlname))
@@ -59,14 +50,7 @@ def visualize_all():
                 subprocess.call(cmd, cwd=pwd)
 
 
-def visualize_krona():
-    pull_krona()
-    visualize_all()
-    #visualize_1percenttotal
-    #visualize_1percentclassified
-
-
 if __name__=="__main__":
+    pull_krona()
     visualize_krona()
-
 
