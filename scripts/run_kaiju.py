@@ -16,7 +16,7 @@ def run_kaiju():
     """
     Run kaiju on the sourmash signatures
     """
-    kaijudirname = "kaijudirb"
+    kaijudirname = "kaijudb"
 
     suffixes = [("_1.trim2.fq.gz", "_2.trim2.fq.gz", ".kaiju_output.trim2.out"),
                 ("_1.trim30.fq.gz","_2.trim30.fq.gz",".kaiju_output.trim30.out")]
