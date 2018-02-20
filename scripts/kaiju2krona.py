@@ -1,15 +1,7 @@
 #!/usr/bin/python3
-import glob, os, re
+import glob, os
 import subprocess
-
-
-def get_prefix(filename,suffix):
-    """
-    Strip the suffix from a filename
-    """
-    s = re.search("^(.*)%s"%(suffix),filename)
-    prefix = s.group(1)
-    return prefix
+from get_prefix import get_prefix
 
 
 def kaiju2krona():
