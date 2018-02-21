@@ -44,6 +44,7 @@ def run_kaiju():
                 cmd += ["-i","%s/%s%s"%(datadir,prefix,suffix1)]
                 cmd += ["-j","%s/%s%s"%(datadir,prefix,suffix2)]
                 cmd += ["-o","%s/%s"%(datadir,targetfile)]
+                cmd += ["-z","4"]
 
                 print("Running this docker command from dir %s:"%(pwd))
                 print(" ".join(cmd))
