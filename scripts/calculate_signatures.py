@@ -1,14 +1,6 @@
 #!/usr/bin/python3
-import glob, os, re
-
-
-def get_prefix(filename,suffix):
-    """
-    Strip the suffix from a filename
-    """
-    s = re.search("^(.*)%s"%(suffix1),filename)
-    prefix = s.group(1)
-    return prefix
+import glob, os
+from get_prefix import get_prefix
 
 
 def calc_signatures():
@@ -39,7 +31,7 @@ def calc_signatures():
             cmd += ["-o","%s/%s"%(datadir, targetfile)]
 
             print("Running this docker command from dir %s:"%(pwd))
-            print(cmd)
+            print(" ".join(cmd))
             print()
     
             subprocess.call(cmd, cwd=pwd)
