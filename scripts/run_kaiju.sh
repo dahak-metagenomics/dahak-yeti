@@ -7,9 +7,9 @@ do
     echo $base
 
     # Command to run container interactively:
-    #docker run -it --rm -v ${PWD}:/data quay.io/biocontainers/kaiju:1.5.0--pl5.22.0_0 /bin/bash
+    #docker run -it --rm -v ${PWD}:/data quay.io/biocontainers/kaiju:1.6.1--pl5.22.0_0 /bin/bash
 
-    docker run -it --rm -v ${PWD}:/data quay.io/biocontainers/kaiju:1.5.0--pl5.22.0_0 \
+    docker run -it --rm -v ${PWD}:/data quay.io/biocontainers/kaiju:1.6.1--pl5.22.0_0 \
         kaiju \
         -x \
         -v \
@@ -27,7 +27,7 @@ do
     base=$(basename $filename _1.trim30.fq.gz)
     echo $base
 
-    docker run -v ${PWD}:/data quay.io/biocontainers/kaiju:1.5.0--pl5.22.0_0 \
+    docker run -v ${PWD}:/data quay.io/biocontainers/kaiju:1.6.1--pl5.22.0_0 \
         kaiju \
         -x \
         -v \
