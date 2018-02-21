@@ -8,12 +8,13 @@
 
 import subprocess
 
-with open('trimmed_data.dat','r') as f:
-    lines = f.readlines()
+def get_trimmed_data():
+    with open('trimmed_data.dat','r') as f:
+        for ln in f.readlines():
+            line = ln.split()
+            cmd = ["wget",line[1],"-O",line[0]]
+            print("Calling command %s"%(" ".join(cmd)))
+            subprocess.call(cmd)
 
-for ln in lines:
-    line = ln.split()
-    cmd = ["wget",line[1],"-O",line[0]]
-    print("Calling command %s"%(" ".join(cmd)))
-    subprocess.call(cmd)
-
+if __name__=="__main__":
+    get_trimmed_data()
