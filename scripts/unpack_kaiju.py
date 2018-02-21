@@ -3,7 +3,7 @@ import os
 import subprocess
 
 pwd = os.getcwd()
-kaijudir = pwd+"/kaijudirb"
+kaijudir = pwd+"/kaijudb"
 tarfile = "kaiju_index_nr_euk.tgz"
 url = "http://kaiju.binf.ku.dk/database/kaiju_index_nr_euk.tgz"
 
