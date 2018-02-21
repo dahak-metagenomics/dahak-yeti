@@ -12,6 +12,7 @@ def pull_krona():
 
 def visualize_krona():
     kaijudirname = "kaijudb"
+    kronaurl = "quay.io/biocontainers/krona:2.7--pl5.22.0_1"
     cases = ["kaiju_out_krona",
              "kaiju_out_krona.1percenttotal",
              "kaiju_out_krona.1percentclassified"]
@@ -38,7 +39,7 @@ def visualize_krona():
 
                 cmd =  ["docker","run"]
                 cmd += ["-v","%s:%s"%(pwd,datadir)]
-                cmd += ["quay.io/biocontainers/krona:2.7--pl5.22.0_1"]
+                cmd += [kronaurl]
                 cmd += ["ktImportText"]
                 cmd += ["-o","%s/%s"%(datadir,htmlname)]
                 cmd += ["%s/%s"%(datadir,filename)]
