@@ -26,7 +26,7 @@ def calc_signatures():
             cmd += ["--merge","%s/%s.trim2.fq.gz"%(datadir,prefix)]
             cmd += ["--track-abundance"]
             cmd += ["--scaled 10000"]
-            cmd += ["-k","21,31,,51"]
+            cmd += ["-k","21,31,51"]
             cmd += ["%s/%s_%d.trim2.fq.gz"%(datadir,prefix,i+1) for i in range(2)]
             cmd += ["-o","%s/%s"%(datadir, targetfile)]
 
