@@ -72,3 +72,24 @@ The `$PATH` is set in `.bash_profile`
 The prompt is set in `.bash_prompt`
 
 The aliases are set in `.aliases`
+
+To set your own aliases, source your own dotfiles, or otherwise
+insert steps into the dotfiles initialization process, use 
+the `~/.extras` file.
+
+To set your git credentials, add the following to the `~/.extras` file:
+
+```
+# Git credentials
+# Not in the repository
+# This prevents people from using incorrect github credentials
+GIT_AUTHOR_NAME="<<< your name here >>>"
+GIT_AUTHOR_EMAIL="<<< your email here >>>"
+
+GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
+
+git config --global user.name "$GIT_AUTHOR_NAME"
+git config --global user.email "$GIT_AUTHOR_EMAIL"
+```
+
