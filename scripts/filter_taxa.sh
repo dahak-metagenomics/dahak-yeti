@@ -2,9 +2,12 @@
 
 # Now let's filter out taxa with low abundances by obtaining genera that comprise at least 1 percent of the total reads:
 
+kaijuurl="quay.io/biocontainers/kaiju:1.6.1--pl5.22.0_0"
 for i in *trim{"2","30"}.out
 do
-    docker run -v /home/ubuntu/data:/data quay.io/biocontainers/kaiju:1.6.1--pl5.22.0_0 \
+    docker run \
+        -v ${PWD}:/data \
+        ${kaijuurl} \
         kaijuReport 
         -v \
         -t /data/kaijudb/nodes.dmp \
@@ -19,7 +22,9 @@ done
 
 for i in *trim{"2","30"}.out
 do
-    docker run -v /home/ubuntu/data:/data quay.io/biocontainers/kaiju:1.6.1--pl5.22.0_0 \
+    docker run \
+        -v ${PWD}:/data \
+        ${kaijuurl} \
         kaijuReport \
         -v \
         -t /data/kaijudb/nodes.dmp \
