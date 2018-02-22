@@ -24,7 +24,7 @@ Make sure you set a password for the `ubuntu` user:
 sudo passwd ubuntu
 ```
 
-### Step 1
+### Step 1: Deploy Repo
 
 Start by deploying the repo on the AWS node:
 
@@ -33,9 +33,17 @@ git clone https://github.com/charlesreid1/dahak-yeti.git
 cd dahak-yeti/
 ```
 
-### Step 2
+### Step 2: Pre-Bootstrap
 
-Next, install the dotfiles (answer `y` when prompted):
+Run the pre-bootstrap script to make sure necessaries are in place:
+
+```
+$ ./pre-bootstrap.sh
+```
+
+### Step 3: Bootstrap
+
+Install the dotfiles (answer `y` when prompted):
 
 ```
 $ ./bootstrap.sh
@@ -45,9 +53,17 @@ Already up-to-date.
 This may overwrite existing files in your home directory. Are you sure? (y/n)  y
 ```
 
-### Step 3
+### Step 4: Do the Hokey Pokey
 
 Log out and log back in.
+
+### Step 5: Install Packages
+
+Install a list of essentials from aptitude:
+
+```
+$ ./install_packages.sh
+```
 
 ## Using
 
@@ -56,4 +72,3 @@ The `$PATH` is set in `.bash_profile`
 The prompt is set in `.bash_prompt`
 
 The aliases are set in `.aliases`
-
