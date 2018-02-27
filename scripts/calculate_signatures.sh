@@ -2,6 +2,8 @@
 #
 # Runs sourmash using the data downloaded from OSF
 
+sourmashurl="quay.io/biocontainers/sourmash:2.0.0a3--py36_0"
+
 for filename in *_1.trim2.fq.gz
 do
     #Remove _1.trim.fq from file name to create base
@@ -14,16 +16,17 @@ do
         # skip
         echo "Skipping file ${base}${sigsuffix}, file exists."
     else
-        echo "Okay I'm gonna run Docker now"
-
-        docker run -v ${PWD}:/data quay.io/biocontainers/sourmash:2.0.0a3--py36_0 sourmash compute \
-                --merge /data/${base}.trim2.fq.gz \
-                --track-abundance \
-                --scaled 10000 \
-                -k 21,31,51 \
-                /data/${base}_1.trim2.fq.gz \
-                /data/${base}_2.trim2.fq.gz \
-                -o /data/${base}${sigsuffix}
+        docker run \
+            -v ${PWD}:/data \
+            ${sourmashurl} \
+            sourmash compute \
+            --merge /data/${base}.trim2.fq.gz \
+            --track-abundance \
+            --scaled 10000 \
+            -k 21,31,51 \
+            /data/${base}_1.trim2.fq.gz \
+            /data/${base}_2.trim2.fq.gz \
+            -o /data/${base}${sigsuffix}
     fi
 done
 
@@ -39,9 +42,10 @@ do
         # skip
         echo "Skipping file ${base}${sigsuffix}, file exists."
     else
-        echo "Okay I'm gonna run Docker now"
-
-        docker run -v ${PWD}:/data quay.io/biocontainers/sourmash:2.0.0a3--py36_0 sourmash compute \
+        docker run \
+            -v ${PWD}:/data \
+            ${sourmashurl} \
+            sourmash compute \
             --merge /data/${base}.trim30.fq.gz \
             --track-abundance \
             --scaled 10000 \
