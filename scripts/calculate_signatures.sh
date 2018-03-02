@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Runs sourmash using the data downloaded from OSF
+# Calculate signatures from the trimmed data using sourmash
 
 sourmashurl="quay.io/biocontainers/sourmash:2.0.0a3--py36_0"
 
