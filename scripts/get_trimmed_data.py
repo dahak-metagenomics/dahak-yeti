@@ -12,7 +12,9 @@ def get_trimmed_data():
     with open('trimmed_data.dat','r') as f:
         for ln in f.readlines():
             line = ln.split()
-            cmd = ["wget",line[1],"-O",line[0]]
+            url = line[1]
+            fname = line[0]
+            cmd = ["wget",url,"-O",fname]
             print("Calling command %s"%(" ".join(cmd)))
             subprocess.call(cmd)
 
