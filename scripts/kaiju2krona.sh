@@ -11,8 +11,7 @@ do
         ${kaijuurl} \
         kaiju2krona \
         -v \
-        -t \
-        /data/${kaijudir}/nodes.dmp \
+        -t /data/${kaijudir}/nodes.dmp \
         -n /data/${kaijudir}/names.dmp \
         -i /data/${i} \
         -o /data/${i}.kaiju.out.krona
@@ -25,8 +24,7 @@ do
         ${kaijuurl} \
         kaijuReport \
         -v \
-        -t \
-        /data/${kaijudir}/nodes.dmp \
+        -t /data/${kaijudir}/nodes.dmp \
         -n /data/${kaijudir}/names.dmp \
         -i /data/${i} \
         -r genus \
