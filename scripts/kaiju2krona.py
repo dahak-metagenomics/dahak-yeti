@@ -24,8 +24,7 @@ def kaiju2krona():
             # ------------------------
             # Kaiju to krona
 
-            #kronaoutfile = prefix + ".kaiju.out.krona"
-            kronaoutfile = prefix + ".kaiju2krona.out"
+            kronaoutfile = prefix + ".kaiju.out.krona"
 
             if(os.path.isfile(kronaoutfile)):
                 print("Skipping file %s, file exists."%(kronaoutfile))
@@ -53,8 +52,7 @@ def kaiju2krona():
             # ------------------------
             # Kaiju Report
 
-            #reportoutfile = prefix + ".kaiju_out_krona.summary"
-            reportutfile = prefix + ".kaiju2krona.summary"
+            reportoutfile = prefix + ".kaiju_out_krona.summary"
 
             if(os.path.isfile(reportoutfile)):
                 print("Skipping file %s, file exists."%(reportoutfile))
