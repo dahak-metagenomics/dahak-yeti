@@ -7,6 +7,7 @@
 
 # Must
 EDITOR="vim"
+GIT_EDITOR="vim"
 
 # Set $PATH here
 export PATH="${HOME}/.pyenv/bin:$PATH"
