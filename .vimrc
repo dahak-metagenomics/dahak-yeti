@@ -1,11 +1,7 @@
 " ==============================================
 "               vanilla vimrc
 " ==============================================
-"
-
-
-" don't bother with vi compatibility
-set nocompatible              " be iMproved, required
+set nocompatible              " iMproved
 filetype off                  " required
 filetype plugin indent on
 "setlocal spell spelllang=en_us
