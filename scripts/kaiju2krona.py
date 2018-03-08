@@ -10,9 +10,10 @@ def kaiju2krona():
     and generate a report.
     """
     kaijudirname = "kaijudb"
+    trims = [2,30]
     suffixes = [".trim2.out",".trim30.out"]
 
-    for suffix in suffixes:
+    for suffix,ntrim in suffixes,trims:
 
         filenames = glob.glob("*"+suffix)
 
@@ -24,7 +25,7 @@ def kaiju2krona():
             # ------------------------
             # Kaiju to krona
 
-            kronaoutfile = prefix + ".kaiju.out.krona"
+            kronaoutfile = prefix + ".trim" + str(ntrim) + ".kaiju.out.krona"
 
             if(os.path.isfile(kronaoutfile)):
                 print("Skipping file %s, file exists."%(kronaoutfile))
@@ -52,7 +53,7 @@ def kaiju2krona():
             # ------------------------
             # Kaiju Report
 
-            reportoutfile = prefix + ".kaiju_out_krona.summary"
+            reportoutfile = prefix + ".trim" + str(ntrim) + ".kaiju_out_krona.summary"
 
             if(os.path.isfile(reportoutfile)):
                 print("Skipping file %s, file exists."%(reportoutfile))
