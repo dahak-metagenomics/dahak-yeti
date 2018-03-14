@@ -7,7 +7,7 @@ open-source tools to identify organisms in complex non-clinical metagenomes.
 
 yeti is a nickname for the beefy AWS nodes that are required to run dahak workflows. 
 
-![Screen shot after installing](/screen.png)
+![Screen shot after installing](/img/screen.png)
 
 ## Installing with Cloud Init
 
