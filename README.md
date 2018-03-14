@@ -56,8 +56,10 @@ To run the user init script, run:
 
 ```
 # as the regular dahak user, 
-# or called via "sudo -H -i -u dahak your-command-here":
 $PWD/sudo_init/sudo_init.sh
+
+# or if you are still sudo,
+sudo -H -i -u dahak $PWD/sudo_init/sudo_init.sh
 ```
 
 ## Using the Dotfiles
