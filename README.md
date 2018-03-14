@@ -1,71 +1,71 @@
 # dahak-yeti 
 
-[`dahak`](https://github.com/dahak-metagenomics/dahak/) is a metagenomics package.
+dahak-yeti is a repository containing dotfiles and initailization scripts for dahak worker nodes.
 
-`yeti` is the nickname for AWS beefy nodes (2x large nodes).
+[dahak](https://github.com/dahak-metagenomics/dahak/) is a package for delivering workflows that use
+open-source tools to identify organisms in complex non-clinical metagenomes.
 
-`dahak-yeti` contains dotfiles and scripts to prep AWS beefy nodes to run dahak.
-
-These dotfiles will give you a nice pink prompt.
+yeti is a nickname for the beefy AWS nodes that are required to run dahak workflows. 
 
 ![Screen shot after installing](/screen.png)
 
-## Installing Dotfiles and Scripts
+## Installing with Cloud Init
 
-Installing the dotfiles and scripts is a three step process that only requires git.
+To use dahak-yeti on an AWS node, you can pass along the cloud init script
+in `cloud_init/` to prepare the node for dahak workflows.
 
-### Before You Begin
+This script will:
+* Install packages and run various system admin tasks
+* Create a `dahak` user
+* Install dotfiles and scripts for `dahak` user
 
-If `which git` returns nothing, you'll need to install it: `apt-get install git`
+## Installing by Hand
 
-Make sure you set a password for the `ubuntu` user:
+Installing by hand is a three-step process:
+* Install git
+* Run sudo init script
+* Run user init script
+
+### Step 1: Install Git
+
+To install git:
 
 ```
-sudo passwd ubuntu
+apt-get update && apt-get install -y git
 ```
 
-### Step 1: Deploy Repo
-
-Start by deploying the repo on the AWS node:
+Now you can check out a copy of the repo:
 
 ```
 git clone https://github.com/charlesreid1/dahak-yeti.git
 cd dahak-yeti/
 ```
 
-### Step 2: Pre-Bootstrap
+### Step 2: Run Sudo Init Script
 
-Run the pre-bootstrap script to make sure necessaries are in place:
-
-```
-$ ./pre-bootstrap.sh
-```
-
-### Step 3: Bootstrap
-
-Install the dotfiles (answer `y` when prompted):
+To run the sudo init script, which calls several other scripts, run:
 
 ```
-$ ./bootstrap.sh
-From https://github.com/charlesreid1/dahak-yeti.git
- * branch            master     -> FETCH_HEAD
-Already up-to-date.
-This may overwrite existing files in your home directory. Are you sure? (y/n)  y
+# as the sudo user:
+$PWD/sudo_init/sudo_init.sh
 ```
 
-### Step 4: Do the Hokey Pokey
+### Step 3: Run User Init Script
 
-Log out and log back in.
-
-### Step 5: Install Packages
-
-Install a list of essentials from aptitude:
+To run the user init script, run:
 
 ```
-$ ./install_packages.sh
+# as the regular dahak user, 
+# or called via "sudo -H -i -u dahak your-command-here":
+$PWD/sudo_init/sudo_init.sh
 ```
 
-## Using
+## Using the Dotfiles
+
+The dotfiles are installed for the regular user on  the yeti node.
+These dotfiles make it easy to define an environment, either for 
+all users (by changing the dotfiles in the repo) or for an individual
+user (using site-specific dotfiles).
 
 The `$PATH` is set in `.bash_profile`
 

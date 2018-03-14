@@ -1,4 +1,6 @@
 #!/bin/bash
+# 
+# install some essential packages
 
 if [ "$(id -u)" != "0" ]; then
     echo ""
