@@ -1,4 +1,5 @@
-#!/usr/bin/python3
+#!/usr/bin/env python
+import os
 import getpass
 import tempfile
 import subprocess
@@ -26,10 +27,10 @@ def install_pyenv():
 
         subprocess.call([condabin,"update"])
 
-        subprocess.call([condabin,"config","--all","channels","r"])
-        subprocess.call([condabin,"config","--all","channels","default"])
-        subprocess.call([condabin,"config","--all","channels","conda-forge"])
-        subprocess.call([condabin,"config","--all","channels","bioconda"])
+        subprocess.call([condabin,"config","--add","channels","r"])
+        subprocess.call([condabin,"config","--add","channels","default"])
+        subprocess.call([condabin,"config","--add","channels","conda-forge"])
+        subprocess.call([condabin,"config","--add","channels","bioconda"])
 
         subprocess.call([condabin,"install","--yes","-c","bioconda","snakemake"])
 

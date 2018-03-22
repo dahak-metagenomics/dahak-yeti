@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python
 import getpass
 import subprocess
 
@@ -6,7 +6,7 @@ import subprocess
 def install_singularity():
     user = getpass.getuser()
     if(user!="root"):
-        raise Exception("You are not root - this script must be run as root.")
+        raise Exception("You are not root - this script requires root (apt-get commands).")
     else:
 
         # -----------------------

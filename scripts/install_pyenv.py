@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python
 import getpass
 import subprocess
 
@@ -9,8 +9,9 @@ def install_pyenv():
         raise Exception("You are root - you should run this script as a normal user.")
     else:
         # Install pyenv 
-        pyenvcmd = ["curl","-L","https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer","|","/bin/bash"]
-        subprocess.call(pyenvcmd, shell=True)
+        curlcmd = ["curl","-L","https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer"]
+        curlproc = subprocess.Popen(curlcmd, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+        subprocess.Popen(["/bin/bash"], stdin=curlproc.stdout, stdout=subprocess.DEVNULL)
 
         # We don't need to add ~/.pyenv/bin to $PATH,
         # it is already done.
@@ -18,4 +19,5 @@ def install_pyenv():
 
 if __name__=="__main__":
     install_pyenv()
+
 
