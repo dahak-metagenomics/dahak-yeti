@@ -9,7 +9,7 @@ yeti is a nickname for the beefy AWS nodes that are required to run dahak workfl
 
 ![Screen shot after installing](/img/screen.png)
 
-## Installing with Cloud Init
+## Cloud Deployment 
 
 To use dahak-yeti on an AWS node, you can pass along the cloud init script
 in `cloud_init/` to prepare the node for dahak workflows.
@@ -19,7 +19,7 @@ This script will:
 * Create a `dahak` user
 * Install dotfiles and scripts for `dahak` user
 
-## Installing by Hand
+## By Hand Deployment
 
 Installing by hand is a three-step process:
 * Install git
