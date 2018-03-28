@@ -6,14 +6,15 @@ then
     DOTFILES="$HOME/dotfiles"
     cd $DOTFILES/sudo_init
 
-    ./install_packages.sh
-    ./get_docker.sh
     ./set_time.sh
+    ./install_packages.sh
+    ./fix_ssh.sh
     (
     cd ../
-    ./gen_ssh_keys
+    ./gen_ssh_keys.sh
     )
     ./set_machine_name.sh $1
+    ./get_docker.sh
 
 else
 
