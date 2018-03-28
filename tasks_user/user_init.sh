@@ -7,7 +7,7 @@ DOTFILES="$HOME/dotfiles"
 mkdir -p $DOTFILES
 
 YETI="$DOTFILES/dahak-yeti"
-git clone https://github.com/charlesreid1/dahak-yeti $DOTFILES
+git clone https://github.com/charlesreid1/dahak-yeti $YETI
 
 cd $YETI/tasks_user
 
