@@ -4,9 +4,10 @@
 set -x
 
 DOTFILES="$HOME/dotfiles"
-git clone https://github.com/charlesreid1/dahak-yeti $DOTFILES
+mkdir -p $DOTFILES
 
 YETI="$DOTFILES/dahak-yeti"
+git clone https://github.com/charlesreid1/dahak-yeti $DOTFILES
 
 cd $YETI/tasks_user
 
