@@ -11,10 +11,11 @@ function doIt() {
 	rsync \
 		--exclude ".git/" \
 		--exclude "bootstrap.sh" \
-		--exclude "get-docker.sh" \
-		--exclude "install_packages.sh" \
-		--exclude "pre_bootstrap.sh" \
-		--exclude "screen.png" \
+		--exclude "cloud_init" \
+		--exclude "img" \
+		--exclude "gen_ssh_keys.sh" \
+		--exclude "tasks_sudo" \
+		--exclude "tasks_user" \
 		--exclude "README.md" \
 		--exclude "LICENSE" \
 		-avh --no-perms . ~;
