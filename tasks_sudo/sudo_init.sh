@@ -15,6 +15,7 @@ then
     )
     ./set_machine_name.sh $1
     ./get_docker.sh
+    ./install_singularity.sh
 
 else
 

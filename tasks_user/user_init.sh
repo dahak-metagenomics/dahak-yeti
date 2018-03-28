@@ -20,5 +20,4 @@ cd ../
 ./install_netdata.sh
 ./install_pyenv.py
 ./install_snakemake.py
-./install_singularity.py
 
