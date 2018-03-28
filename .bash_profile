@@ -20,8 +20,10 @@ GIT_EDITOR="vim"
 
 # Pyenv
 export PATH="${HOME}/.pyenv/bin:${PATH}"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+
+### # only include if you want to activate your env by default:
+###eval "$(pyenv init -)"
+###eval "$(pyenv virtualenv-init -)"
 
 
 # Bash history
