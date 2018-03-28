@@ -4,7 +4,7 @@ if [[ "$#" -eq 1 ]]
 then
 
     DOTFILES="$HOME/dotfiles"
-    cd $DOTFILES/sudo_init
+    cd $DOTFILES/tasks_sudo
 
     ./set_time.sh
     ./install_packages.sh
