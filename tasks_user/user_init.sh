@@ -6,6 +6,10 @@ set -x
 DOTFILES="$HOME/dotfiles"
 git clone https://github.com/charlesreid1/dahak-yeti $DOTFILES
 
+YETI="$DOTFILES/dahak-yeti"
+
+cd $YETI/tasks_user
+
 ./pre_bootstrap.sh
 (
 cd ../
