@@ -6,7 +6,6 @@ then
     DOTFILES="$HOME/dotfiles"
     cd $DOTFILES/sudo_init
 
-    ./make_user_dahak.sh
     ./install_packages.sh
     ./get_docker.sh
     ./set_time.sh
