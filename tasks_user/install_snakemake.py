@@ -13,7 +13,7 @@ def install_pyenv():
         conda_version = "miniconda3-4.3.30"
 
         # ensure this conda is installed
-        installcmd = ["pyenv","install",conda_version]
+        installcmd = ["pyenv","install","-f",conda_version]
         subprocess.call(installcmd)
         
         # ensure this conda is the global conda
