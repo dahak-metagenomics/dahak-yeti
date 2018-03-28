@@ -9,9 +9,6 @@
 EDITOR="vim"
 GIT_EDITOR="vim"
 
-# Set $PATH here
-export PATH="${HOME}/.pyenv/bin:$PATH"
-
 
 
 
@@ -21,7 +18,10 @@ export PATH="${HOME}/.pyenv/bin:$PATH"
 # Go
 #export PATH="${HOME}/.local/bin:${PATH}"
 
-
+# Pyenv
+export PATH="${HOME}/.pyenv/bin:${PATH}"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 
 # Bash history
