@@ -1,46 +1,50 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import getpass
+import os, sys
 import subprocess
 
+FNULL = open(os.devnull, 'w')
 
 def install_singularity():
     user = getpass.getuser()
     if(user!="root"):
-        raise Exception("You are not root - this script must be run as root.")
+        raise Exception("You are not root - this script requires root (apt-get commands).")
     else:
 
-        # -----------------------
-        # Update aptitude and install dependencies
-        aptupdatecmd = ["apt-get","-y","update"]
-        subprocess.call(aptupdatecmd)
-        
-        aptinstallcmd = ["apt-get","-y","install"]
-        subprocess.call(aptinstallcmd+["zlib1g-dev"])
-        subprocess.call(aptinstallcmd+["ncurses-dev"])
+        print("Installing singularity...")
+        print("Make sure you run the install_docker.py script first.")
 
         # -----------------------
-        # Install docker
-        wgetproc = subprocess.Popen(["wget","-qO-","https://get.docker.com"], stdout=subprocess.PIPE)
-        bashproc = subprocess.Popen(["/bin/bash"], stdin=wgetproc.stdout, stdout=subprocess.PIPE)
+        # Parameters:
 
-        subprocess.call(["usermod","-aG","docker","ubuntu"])
+        # User to add to the docker group
+        user = "ubuntu"
 
         # -----------------------
         # Install singularity:
-        wgetproc = subprocess.Popen(["wget","-O-","http://neuro.debian.net/lists/xenial.us-ca.full | tee /etc/apt/sources.list.d/neurodebian.sources.list"],stdout=subprocess.PIPE)
-        bashproc = subprocess.Popen(["/bin/bash"], stdin=wgetproc.stdout, stdout=subprocess.PIPE)
+        print(" - installing singularity aptitude sources")
+        wgetproc = subprocess.call(["wget","http://neuro.debian.net/lists/xenial.us-ca.full","-O","/etc/apt/sources.list.d/neurodebian.sources.list"])
 
+        print(" - installing singularity aptitude key")
         keyupdatecmd = ["apt-key","adv","--recv-keys","--keyserver","hkp://pool.sks-keyservers.net:80","0xA5D32F012649A5A9"]
-        subprocess.call(keyupdatecmd)
+        keyupdateproc = subprocess.call(keyupdatecmd, stdout=FNULL)
+        # this sometimes fails. :(
+        # redirect output to string,
+        # check string for "failed", 
+        # retry if true
 
-        subprocess.call(aptupdatecmd)
-        subprocess.call(aptinstallcmd+["singularity-container"])
+        print(" - updating aptitude repositories")
+        aptupdatecmd = ["apt-get","-y","update"]
+        subprocess.call(aptupdatecmd, stdout=FNULL)
+
+        print(" - installing singularity")
+        aptinstallcmd = ["apt-get","-y","install"]
+        subprocess.Popen(aptinstallcmd+["singularity-container"], stdout=FNULL)
         
-        print("-"*40)
+        print("     ~~*~~ ~~*~~ ~~*~~ SUCCESS! ~~*~~ ~~*~~ ~~*~~\n")
+        print("     Singularity is now installed.")
+        print("     Log out and log back in for the docker group to take effect.")
         print()
-        print("Singularity is now installed. Log out and log back in for docker group to take effect.")
-        print()
-        print("-"*40)
 
 if __name__=="__main__":
     install_singularity()
