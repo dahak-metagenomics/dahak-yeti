@@ -6,7 +6,7 @@ rc = 0 # returncode
 print("")
 print("Installing conda...")
 
-rc = subprocess.call(["pyenv","install","miniconda3-4.3.30"])
+rc = subprocess.call(["pyenv","install","-s","miniconda3-4.3.30"])
 if(rc!=0):
     raise Exception()
 
