@@ -16,5 +16,6 @@ cd ../
 )
 ./install_netdata.sh
 ./install_pyenv.py
+./install_conda.py
 ./install_snakemake.py
 
