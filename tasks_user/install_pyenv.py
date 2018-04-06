@@ -11,6 +11,13 @@ It prints some information about what further steps
 the user should take to add pyenv to their path
 and ensure they are using the pyenv python version 
 all the time.
+
+Once you do this you can install a particular version
+of python or conda like this:
+
+    pyenv install miniconda3-4.3.30
+
+Use the -s flag to skip if the version is already installed.
 """
 
 FNULL = open(os.devnull, 'w')
@@ -65,6 +72,7 @@ def install_pyenv():
             print("         $ echo 'export PATH=\"%s:${PATH}\"' >> ~/.bash_profile"%(binpath))
             print("         $ echo 'eval \"$(pyenv init -)\"' >> ~/.bash_profile")
             print("         $ source ~/.bash_profile\n")
+            print("     (This should be set in charlesreid1 dotfiles\n")
             print("")
             print("     Once you have pyenv on your path, you can use the pyenv command:")
             print("         $ pyenv install --list")
