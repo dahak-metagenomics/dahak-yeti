@@ -29,22 +29,30 @@ def install_snakemake():
         print(" - Adding channels:")
 
         print("     - r")
-        subprocess.call([condabin,"config","--add","channels","r"]          , stdout=FNULL)
+        rc = subprocess.call([condabin,"config","--add","channels","r"]          , stdout=FNULL)
+        if(rc != 0):
+            raise Exception()
 
         print("     - default")
-        subprocess.call([condabin,"config","--add","channels","default"]    , stdout=FNULL)
+        rc = subprocess.call([condabin,"config","--add","channels","default"]    , stdout=FNULL)
+        if(rc != 0):
+            raise Exception()
 
         print("     - conda-forge")
-        subprocess.call([condabin,"config","--add","channels","conda-forge"], stdout=FNULL)
+        rc = subprocess.call([condabin,"config","--add","channels","conda-forge"], stdout=FNULL)
+        if(rc != 0):
+            raise Exception()
 
         print("     - bioconda")
-        subprocess.call([condabin,"config","--add","channels","bioconda"]   , stdout=FNULL)
-
-        #subprocess.call([condabin,"install","--yes","-c","bioconda","snakemake"])
+        rc = subprocess.call([condabin,"config","--add","channels","bioconda"]   , stdout=FNULL)
+        if(rc != 0):
+            raise Exception()
 
         print(" - Installing snakemake")
-        condacmd = ["conda","install","-y","-c","bioconda","snakemake"]
-        subprocess.call(condacmd, stdout=FNULL)
+        condacmd = [condabin,"install","-y","-c","bioconda","snakemake"]
+        rc = subprocess.call(condacmd, stdout=FNULL)
+        if(rc != 0):
+            raise Exception()
 
         # ---------------------------
         # Install osf cli client
@@ -53,11 +61,14 @@ def install_snakemake():
         pipbin = pyenvbin+"/.pyenv/shims/pip"
 
         print(" - Upgrading pip")
-        subprocess.call([pipbin,"install","--upgrade","pip"]   , stdout=FNULL)
+        rc = subprocess.call([pipbin,"install","--upgrade","pip"]   , stdout=FNULL)
+        if(rc != 0):
+            raise Exception()
 
         print(" - Installing OSF CLI client")
-        subprocess.call([pipbin,"install","--user","osfclient"], stdout=FNULL)
-
+        rc = subprocess.call([pipbin,"install","--user","osfclient"], stdout=FNULL)
+        if(rc != 0):
+            raise Exception()
 
         print("     ~~*~~ ~~*~~ ~~*~~ SUCCESS! ~~*~~ ~~*~~ ~~*~~\n")
         print("     Snakemake and the OSF client are now installed.")
