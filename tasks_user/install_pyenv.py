@@ -12,12 +12,10 @@ the user should take to add pyenv to their path
 and ensure they are using the pyenv python version 
 all the time.
 
-Once you do this you can install a particular version
-of python or conda like this:
+Once you do this, you can install a python version, e.g.,
 
-    pyenv install miniconda3-4.3.30
+    pyenv install -s miniconda3-4.3.30
 
-Use the -s flag to skip if the version is already installed.
 """
 
 FNULL = open(os.devnull, 'w')
@@ -33,7 +31,7 @@ def install_pyenv():
         # Install pyenv 
         curlcmd = ["curl","-L","https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer"]
         curlproc = subprocess.Popen(curlcmd, stdout=subprocess.PIPE, stderr=FNULL)
-        subprocess.Popen(["/bin/bash"], stdin=curlproc.stdout, stdout=FNULL)
+        subprocess.call(["/bin/bash"], stdin=curlproc.stdout, stdout=FNULL, stderr=FNULL)
 
         print("Done.\n")
 
@@ -87,5 +85,4 @@ def install_pyenv():
 
 if __name__=="__main__":
     install_pyenv()
-
 
