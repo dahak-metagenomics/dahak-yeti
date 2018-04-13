@@ -5,17 +5,21 @@ set nocompatible              " iMproved
 filetype off                  " required
 filetype plugin indent on
 "setlocal spell spelllang=en_us
-" disable folding
-set nofoldenable
-" Turn off Esc+O key sequences (eliminates one-second delay when pressing O) https://superuser.com/a/161216
-" [if this is re-enabled i may stab someone.]
+set nofoldenable    " disable folding
+
+
+
+
+" Turn off Esc+O key sequences (eliminates one-second delay when pressing O):
+" https://superuser.com/questions/161178/why-does-vim-delay-for-a-second-whenever-i-use-the-o-command-open-a-new-line#161216
+" if this is re-enabled i may stab someone.
 set noesckeys
-" timeout of 5 ms
 set ttimeoutlen=5
+
+" you have to do this a second time
+set nocompatible
 " don't break words with wrap on
 set linebreak
-" put swap files in one place, instead of in-place
-set directory=~/.vim/swap
 " don't make these keys do annoying things
 nnoremap <F1> <nop>
 nnoremap J mzJ`z
@@ -58,6 +62,7 @@ hi IncSearch cterm=none ctermfg=blue ctermbg=green
 set ignorecase
 set smartcase
 " toggle search highlighting:
+" space after search turns off highlights and clears messages
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 " turn off splash message
 set shortmess+=I
@@ -65,13 +70,16 @@ set shortmess+=I
 set backspace=indent,eol,start
 " murder that cursed blinking cursor
 let &guicursor = &guicursor . ",a:blinkon0"
-" Do special stuff for Makefiles:
-" don't expand tabs to spaces, since actual tab characters are
-" needed, and have indentation at 8 chars to be sure that all indents are tabs
-" (despite the mappings later):
+" Makefiles
 au BufRead,BufNewFile Makefile*,*.make,*.mk set noexpandtab
-" otherwise = 4 or even 8 (the 8 looks nice)
+# C++
 au BufRead,BufNewFile *.cpp,*.cxx,*.cc,*.c,*.h,*.hpp,*.hxx,*.hh set tabstop=4 shiftwidth=4 softtabstop=4 nowrap
+# Snakemake files: .rule, .snake, .smk
+au BufNewFile,BufRead Snakefile set syntax=snakemake
+au BufNewFile,BufRead *rule set syntax=snakemake
+au BufNewFile,BufRead *.smk set syntax=snakemake
+" Yaml
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 " line numbering - make it more readable
 set ruler
 " eliminate line wrapping
@@ -89,6 +97,8 @@ abbreviate reccommend recommend
 abbreviate reccomend recommend
 abbreviate recomend recommend
 abbreviate slef self
+abbreviate paramters parameters
+abbreviate exmaple example
 "
 " :e <tab> brings up longest; <tab> again shows list
 set wildmode=longest,list
