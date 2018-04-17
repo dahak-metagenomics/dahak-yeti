@@ -4,5 +4,4 @@
 mkdir -p ~/.vim/swap
 mkdir -p ~/.vim/undo
 mkdir -p ~/.vim/backups
-
-
+mkdir -p ~/.vim/syntax
