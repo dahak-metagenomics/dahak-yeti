@@ -54,9 +54,6 @@ def install_snakemake():
         if(rc != 0):
             raise Exception()
 
-        # ---------------------------
-        # Install osf cli client
-        
         pyenvbin = os.environ['HOME']
         pipbin = pyenvbin+"/.pyenv/shims/pip"
 
@@ -65,13 +62,8 @@ def install_snakemake():
         if(rc != 0):
             raise Exception()
 
-        print(" - Installing OSF CLI client")
-        rc = subprocess.call([pipbin,"install","--user","osfclient"], stdout=FNULL)
-        if(rc != 0):
-            raise Exception()
-
         print("     ~~*~~ ~~*~~ ~~*~~ SUCCESS! ~~*~~ ~~*~~ ~~*~~\n")
-        print("     Snakemake and the OSF client are now installed.")
+        print("     Snakemake is now installed.")
         print("     Test that snakemake is working using the following one-liner:\n")
         print("         python -c 'import snakemake'")
         print()
