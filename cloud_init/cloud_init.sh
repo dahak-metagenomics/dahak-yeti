@@ -22,6 +22,8 @@ apt-get install -y git
 DOTFILES="/dotfiles"
 git clone https://github.com/charlesreid1/dahak-yeti $DOTFILES
 
+# NOTE: use 169.254.x.y to get AWS name tag
+
 # run root init script
 $DOTFILES/tasks_sudo/sudo_init.sh yeti
 
