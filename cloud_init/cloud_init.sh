@@ -23,7 +23,7 @@ DOTFILES="$HOME/dotfiles"
 git clone https://github.com/charlesreid1/dahak-yeti $DOTFILES
 
 # run root init script
-$DOTFILES/tasks_sudo/sudo_init.sh dahak-yeti
+$DOTFILES/tasks_sudo/sudo_init.sh yeti
 
 # copy the user init script
 cp $DOTFILES/tasks_user/user_init.sh /home/$USER/.
