@@ -19,7 +19,7 @@ apt-get update
 apt-get install -y git
 
 # get copy of yeti for root user
-DOTFILES="$HOME/dotfiles"
+DOTFILES="/dotfiles"
 git clone https://github.com/charlesreid1/dahak-yeti $DOTFILES
 
 # run root init script
