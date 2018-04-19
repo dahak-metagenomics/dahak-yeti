@@ -74,9 +74,11 @@ let &guicursor = &guicursor . ",a:blinkon0"
 au BufRead,BufNewFile Makefile*,*.make,*.mk set noexpandtab
 " C++
 au BufRead,BufNewFile *.cpp,*.cxx,*.cc,*.c,*.h,*.hpp,*.hxx,*.hh set tabstop=4 shiftwidth=4 softtabstop=4 nowrap
-" Snakemake files: .rule, .snake, .smk
+" Snakemake files: Snakefile, .rule, .settings, .snake, .smk
 au BufNewFile,BufRead Snakefile set syntax=snakemake
-au BufNewFile,BufRead *rule set syntax=snakemake
+au BufNewFile,BufRead *.rule set syntax=snakemake
+au BufNewFile,BufRead *.settings set syntax=snakemake
+au BufNewFile,BufRead *.snake set syntax=snakemake
 au BufNewFile,BufRead *.smk set syntax=snakemake
 " Yaml
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
