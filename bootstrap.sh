@@ -17,6 +17,7 @@ function doIt() {
 		--exclude "tasks_sudo" \
 		--exclude "tasks_user" \
 		--exclude "README.md" \
+		--exclude "TODO.md" \
 		--exclude "LICENSE" \
 		-avh --no-perms . ~;
 	source ~/.bash_profile;
