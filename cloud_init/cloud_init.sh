@@ -29,7 +29,7 @@ $DOTFILES/tasks_sudo/sudo_init.sh yeti
 
 # copy the user init script
 cp $DOTFILES/tasks_user/user_init.sh /home/$REGUSER/.
-chown $REGUSER:$REGUSER /home/$USER/user_init.sh
+chown $REGUSER:$REGUSER /home/$REGUSER/user_init.sh
 
 # run user init script as user
 sudo -H -i -u $REGUSER /home/$REGUSER/user_init.sh
