@@ -19,8 +19,8 @@ apt-get update
 apt-get install -y git
 
 # get copy of yeti for root user
-DOTFILES="/dotfiles"
-git clone https://github.com/charlesreid1/dahak-yeti $DOTFILES
+DOTFILES="dotfiles"
+git clone https://github.com/dahak-metagenomics/dahak-yeti $DOTFILES
 
 # NOTE: use 169.254.x.y to get AWS name tag
 
@@ -33,4 +33,3 @@ chown $USER:$USER /home/$USER/user_init.sh
 
 # run user init script as user
 sudo -H -i -u $USER /home/$USER/user_init.sh
-
