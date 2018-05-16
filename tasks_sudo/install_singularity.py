@@ -40,6 +40,9 @@ def install_singularity():
         print(" - installing singularity")
         aptinstallcmd = ["apt-get","-y","install"]
         subprocess.Popen(aptinstallcmd+["singularity-container"], stdout=FNULL)
+        # this sometimes complains
+        # E: Setting in Stop via TCSAFLUSH for stdin failed! - tcsetattr (5: Input/output error)
+        # E: Setting in Stop via TCSAFLUSH for stdin failed! - tcsetattr (5: Input/output error)
         
         print("     ~~*~~ ~~*~~ ~~*~~ SUCCESS! ~~*~~ ~~*~~ ~~*~~\n")
         print("     Singularity is now installed.")
