@@ -34,12 +34,14 @@ def install_pyenv():
         subprocess.call(["/bin/bash"], stdin=curlproc.stdout, stdout=FNULL, stderr=FNULL)
 
         print("Done.\n")
-
-        # We don't need to add ~/.pyenv/bin to $PATH,
-        # it is already done.
+        
+        # Now add ~/.pyenv/bin to $PATH
         binpath = os.path.join(os.environ['HOME'],'.pyenv','bin')
         pypath = os.path.join(os.environ['HOME'],'.pyenv','shims')
+
         syspath = sys.path
+        syspath.append(binpath)
+        syspath.append(pypath)
 
         if binpath in syspath:
             print("     ~~*~~ ~~*~~ ~~*~~ SUCCESS! ~~*~~ ~~*~~ ~~*~~\n")
