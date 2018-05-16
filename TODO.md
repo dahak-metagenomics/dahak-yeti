@@ -1,3 +1,10 @@
+stupid stupid stupid stupid stupid stupid ssh key problems
+- key is owned by root for some unknown reason
+
+```
+Load key "/home/ubuntu/.ssh/id_rsa": Permission denied
+```
+
 docker:
 - docker is not installed
 - with and without docker?  (short cloud-init url at charlesreid1.com?)
