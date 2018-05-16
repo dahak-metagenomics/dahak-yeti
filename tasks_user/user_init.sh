@@ -12,8 +12,8 @@ cd $YETI/tasks_user
 (
 cd ../
 ./bootstrap.sh -f
-./gen_ssh_keys.sh
 )
+./gen_ssh_keys.sh
 ./install_netdata.sh
 ./install_pyenv.py
 ./activate_conda.py
