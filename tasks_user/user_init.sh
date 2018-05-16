@@ -4,7 +4,7 @@
 set -x
 
 YETI="$HOME/dahak-yeti"
-git clone https://github.com/charlesreid1/dahak-yeti $YETI
+git clone https://github.com/dahak-metagenomics/dahak-yeti $YETI
 
 cd $YETI/tasks_user
 
