@@ -12,7 +12,7 @@
 set -x
 
 # ubuntu AMI provides this non-root user by default :)
-USER="ubuntu"
+REGUSER="ubuntu"
 
 # first things first
 apt-get update
@@ -28,8 +28,8 @@ git clone https://github.com/dahak-metagenomics/dahak-yeti $DOTFILES
 $DOTFILES/tasks_sudo/sudo_init.sh yeti
 
 # copy the user init script
-cp $DOTFILES/tasks_user/user_init.sh /home/$USER/.
-chown $USER:$USER /home/$USER/user_init.sh
+cp $DOTFILES/tasks_user/user_init.sh /home/$REGUSER/.
+chown $REGUSER:$REGUSER /home/$USER/user_init.sh
 
 # run user init script as user
-sudo -H -i -u $USER /home/$USER/user_init.sh
+sudo -H -i -u $REGUSER /home/$REGUSER/user_init.sh
