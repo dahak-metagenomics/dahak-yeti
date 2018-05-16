@@ -43,7 +43,6 @@ def install_singularity():
         
         print("     ~~*~~ ~~*~~ ~~*~~ SUCCESS! ~~*~~ ~~*~~ ~~*~~\n")
         print("     Singularity is now installed.")
-        print("     Log out and log back in for the docker group to take effect.")
         print()
 
 if __name__=="__main__":
