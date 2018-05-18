@@ -21,7 +21,11 @@ GIT_EDITOR="vim"
 # Pyenv
 export PATH="${HOME}/.pyenv/bin:${PATH}"
 
-# only include if you want to activate your env by default.
+#
+# This ALWAYS complains when starting up the node.
+# Don't add this to .bash_profile until the pyenv script is finished.
+# 
+# only include this if you want to activate your env by default.
 # you should also install a pyenv version!
 eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
