@@ -13,6 +13,7 @@ cd $YETI/tasks_user
 cd ../
 ./bootstrap.sh -f
 )
+. ~/.bash_profile
 ./gen_ssh_keys.sh
 ./install_netdata.sh
 ./install_pyenv.py
