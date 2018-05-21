@@ -27,7 +27,7 @@ def install_singularity():
 
         print(" - installing singularity aptitude key")
         keyupdatecmd = ["apt-key","adv","--recv-keys","--keyserver","hkp://pool.sks-keyservers.net:80","0xA5D32F012649A5A9"]
-        keyupdateproc = subprocess.call(keyupdatecmd, stdout=FNULL)
+        keyupdateproc = subprocess.call(keyupdatecmd)
         # this sometimes fails. :(
         # redirect output to string,
         # check string for "failed", 
@@ -35,11 +35,11 @@ def install_singularity():
 
         print(" - updating aptitude repositories")
         aptupdatecmd = ["apt-get","-y","update"]
-        subprocess.call(aptupdatecmd, stdout=FNULL)
+        subprocess.call(aptupdatecmd)
 
         print(" - installing singularity")
         aptinstallcmd = ["apt-get","-y","install"]
-        subprocess.Popen(aptinstallcmd+["singularity-container"], stdout=FNULL)
+        subprocess.Popen(aptinstallcmd+["singularity-container"])
         # this sometimes complains
         # E: Setting in Stop via TCSAFLUSH for stdin failed! - tcsetattr (5: Input/output error)
         # E: Setting in Stop via TCSAFLUSH for stdin failed! - tcsetattr (5: Input/output error)
