@@ -30,11 +30,11 @@ def install_pyenv():
 
         print(" - installing pyenv version %s"%(version))
         installcmd = ["pyenv","install","-f",version]
-        installproc = subprocess.call(installcmd, stdout=FNULL, stderr=FNULL)
+        installproc = subprocess.call(installcmd)
 
         print(" - setting global pyenv version")
         globalcmd = ["pyenv","global",version]
-        globalproc = subprocess.call(globalcmd, stdout=FNULL, stderr=FNULL)
+        globalproc = subprocess.call(globalcmd)
 
         print(" - pyenv init piped to bash")
         pyenvinitcmd = ["pyenv","init","-"]
