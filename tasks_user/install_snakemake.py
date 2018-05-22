@@ -10,8 +10,6 @@ Install Snakemake
 This script runs the necessary commands to install Snakemake.
 """
 
-FNULL = open(os.devnull, 'w')
-
 def install_snakemake():
     user = getpass.getuser()
     if(user=="root"):
@@ -29,28 +27,28 @@ def install_snakemake():
         print(" - Adding channels:")
 
         print("     - r")
-        rc = subprocess.call([condabin,"config","--add","channels","r"]          , stdout=FNULL)
+        rc = subprocess.call([condabin,"config","--add","channels","r"])
         if(rc != 0):
             raise Exception()
 
         print("     - default")
-        rc = subprocess.call([condabin,"config","--add","channels","default"]    , stdout=FNULL)
+        rc = subprocess.call([condabin,"config","--add","channels","defaults"])
         if(rc != 0):
             raise Exception()
 
         print("     - conda-forge")
-        rc = subprocess.call([condabin,"config","--add","channels","conda-forge"], stdout=FNULL)
+        rc = subprocess.call([condabin,"config","--add","channels","conda-forge"])
         if(rc != 0):
             raise Exception()
 
         print("     - bioconda")
-        rc = subprocess.call([condabin,"config","--add","channels","bioconda"]   , stdout=FNULL)
+        rc = subprocess.call([condabin,"config","--add","channels","bioconda"])
         if(rc != 0):
             raise Exception()
 
         print(" - Installing snakemake")
-        condacmd = [condabin,"install","-y","-c","bioconda","snakemake"]
-        rc = subprocess.call(condacmd, stdout=FNULL)
+        condacmd = [condabin,"install","-y","-c","bioconda","-c","conda-forge","snakemake"]
+        rc = subprocess.call(condacmd)
         if(rc != 0):
             raise Exception()
 
@@ -58,7 +56,7 @@ def install_snakemake():
         pipbin = pyenvbin+"/.pyenv/shims/pip"
 
         print(" - Upgrading pip")
-        rc = subprocess.call([pipbin,"install","--upgrade","pip"]   , stdout=FNULL)
+        rc = subprocess.call([pipbin,"install","--upgrade","pip"])
         if(rc != 0):
             raise Exception()
 
