@@ -10,8 +10,6 @@ Install Snakemake
 This script runs the necessary commands to install Snakemake.
 """
 
-FNULL = open(os.devnull, 'w')
-
 def install_snakemake():
     user = getpass.getuser()
     if(user=="root"):
@@ -34,7 +32,7 @@ def install_snakemake():
             raise Exception()
 
         print("     - default")
-        rc = subprocess.call([condabin,"config","--add","channels","default"])
+        rc = subprocess.call([condabin,"config","--add","channels","defaults"])
         if(rc != 0):
             raise Exception()
 
@@ -49,7 +47,7 @@ def install_snakemake():
             raise Exception()
 
         print(" - Installing snakemake")
-        condacmd = [condabin,"install","-y","-c","bioconda","snakemake"]
+        condacmd = [condabin,"install","-y","-c","bioconda","-c","conda-forge","snakemake"]
         rc = subprocess.call(condacmd)
         if(rc != 0):
             raise Exception()
