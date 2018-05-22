@@ -14,6 +14,7 @@ cd ../
 ./bootstrap.sh -f
 )
 . ~/.bash_profile
+./prepare_vim.sh
 ./gen_ssh_keys.sh
 ./install_netdata.sh
 ./install_pyenv.py
