@@ -5,6 +5,48 @@ import subprocess
 
 FNULL = open(os.devnull, 'w')
 
+def install_singularity_the_slightly_easier_way():
+    user = getpass.getuser()
+    if(user!="root"):
+        raise Exception("You are not root - this script requires root (apt-get commands).")
+    else:
+
+        print("Installing singularity...")
+        
+
+        #############################
+        # Prerequisites
+        
+        print(" - installing libarchive-devel")
+        aptlibarchive = ["apt-get","install","-y","libarchive-dev"]
+        keyupdateproc = subprocess.call(aptlibarchive)
+        
+
+        #############################
+        # Singularity
+        
+        version = "2.5.1"
+        
+        print(" - downloading singularity")
+        tarurl = "https://github.com/singularityware/singularity/releases/download/{version}/singularity-{version}.tar.gz".format(version=version)
+        wgetcmd = ["wget",tarurl]
+        subprocess.call(wgetcmd)
+
+        tarcmd = ["tar","xvf","singularity-{version}.tar.gz".format(version=version)]
+        subprocess.call(tarcmd)
+        
+        singularity_dir = "singularity-{version}".format(version=version)
+        configurecmd = ["./configure","--prefix=/usr/local"]
+        subprocss.call(configurecmd, cwd=singularity_dir)
+        
+        makecmd = ["make"]
+        subprocss.call(makecmd, cwd=singularity_dir)
+        
+        makeinstallcmd = ["make","install"]
+        subprocss.call(makeinstallcmd, cwd=singularity_dir)
+
+
+
 def install_singularity():
     user = getpass.getuser()
     if(user!="root"):
@@ -12,12 +54,10 @@ def install_singularity():
     else:
 
         print("Installing singularity...")
-        print("Make sure you run the install_docker.py script first.")
 
         # -----------------------
         # Parameters:
 
-        # User to add to the docker group
         user = "ubuntu"
 
         # -----------------------
