@@ -10,6 +10,64 @@ Install Snakemake
 This script runs the necessary commands to install Snakemake.
 """
 
+
+def install_snakemake_the_slightly_easier_way():
+    user = getpass.getuser()
+    if(user=="root"):
+        raise Exception("You are root - you should run this script as a normal user.")
+    else:
+
+        print("Installing snakemake...")
+
+        # ---------------------------
+        # Install snakemake
+
+        pyenvbin = os.environ['HOME']
+        condabin = pyenvbin+"/.pyenv/shims/conda"
+        pipbin = pyenvbin+"/.pyenv/shims/pip"
+        
+
+        print(" - Adding channels:")
+
+        print("     - r")
+        rc = subprocess.call([condabin,"config","--add","channels","r"])
+        if(rc != 0):
+            raise Exception()
+
+        print("     - default")
+        rc = subprocess.call([condabin,"config","--add","channels","defaults"])
+        if(rc != 0):
+            raise Exception()
+
+        print("     - conda-forge")
+        rc = subprocess.call([condabin,"config","--add","channels","conda-forge"])
+        if(rc != 0):
+            raise Exception()
+
+        print("     - bioconda")
+        rc = subprocess.call([condabin,"config","--add","channels","bioconda"])
+        if(rc != 0):
+            raise Exception()
+        
+        
+        print(" - Upgrading pip")
+        rc = subprocess.call([pipbin,"install","--upgrade","pip"])
+        if(rc != 0):
+            raise Exception()
+
+        print(" - Installing snakemake")
+        rc = subprocess.call([pipbin,"install","snakemake"])
+        if(rc != 0):
+            raise Exception()
+
+        print("     ~~*~~ ~~*~~ ~~*~~ SUCCESS! ~~*~~ ~~*~~ ~~*~~\n")
+        print("     Snakemake is now installed.")
+        print("     Test that snakemake is working using the following one-liner:\n")
+        print("         python -c 'import snakemake'")
+        print()
+        
+        
+
 def install_snakemake():
     user = getpass.getuser()
     if(user=="root"):
@@ -68,5 +126,5 @@ def install_snakemake():
 
 
 if __name__=="__main__":
-    install_snakemake()
+    install_snakemake_the_slightly_easier_way()
 
