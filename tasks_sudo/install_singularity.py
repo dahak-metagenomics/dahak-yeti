@@ -37,13 +37,13 @@ def install_singularity_the_slightly_easier_way():
         
         singularity_dir = "singularity-{version}".format(version=version)
         configurecmd = ["./configure","--prefix=/usr/local"]
-        subprocss.call(configurecmd, cwd=singularity_dir)
+        subprocess.call(configurecmd, cwd=singularity_dir)
         
         makecmd = ["make"]
-        subprocss.call(makecmd, cwd=singularity_dir)
+        subprocess.call(makecmd, cwd=singularity_dir)
         
         makeinstallcmd = ["make","install"]
-        subprocss.call(makeinstallcmd, cwd=singularity_dir)
+        subprocess.call(makeinstallcmd, cwd=singularity_dir)
 
 
 
@@ -89,5 +89,5 @@ def install_singularity():
         print()
 
 if __name__=="__main__":
-    install_singularity()
+    install_singularity_the_slightly_easier_way()
 
