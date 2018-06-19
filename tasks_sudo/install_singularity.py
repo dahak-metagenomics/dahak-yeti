@@ -3,12 +3,11 @@ import getpass
 import os, sys
 import subprocess
 
-FNULL = open(os.devnull, 'w')
 
 def install_singularity_the_slightly_easier_way():
     user = getpass.getuser()
     if(user!="root"):
-        raise Exception("You are not root - this script requires root (apt-get commands).")
+        raise Exception("You are not root - this script requires root (or write access to /usr/local).")
     else:
 
         print("Installing singularity...")
@@ -32,58 +31,29 @@ def install_singularity_the_slightly_easier_way():
         wgetcmd = ["wget",tarurl]
         subprocess.call(wgetcmd)
 
+        print(" - unpacking singularity")
         tarcmd = ["tar","xvf","singularity-{version}.tar.gz".format(version=version)]
         subprocess.call(tarcmd)
         
+        print(" - configuring singularity")
         singularity_dir = "singularity-{version}".format(version=version)
         configurecmd = ["./configure","--prefix=/usr/local"]
         subprocess.call(configurecmd, cwd=singularity_dir)
         
+        print(" - making singularity")
         makecmd = ["make"]
         subprocess.call(makecmd, cwd=singularity_dir)
-        
+
+        print(" - installing singularity")
         makeinstallcmd = ["make","install"]
         subprocess.call(makeinstallcmd, cwd=singularity_dir)
 
+        print(" - removing singularity")
+        rmtar = ["rm","-rf","singularity-{version}.tar.gz".format(version=version)]
+        subprocess.call(rmtar)
+        rmdir = ["rm","-rf","singularity-{version}".format(version=version)]
+        subprocess.call(rmdir)
 
-
-def install_singularity():
-    user = getpass.getuser()
-    if(user!="root"):
-        raise Exception("You are not root - this script requires root (apt-get commands).")
-    else:
-
-        print("Installing singularity...")
-
-        # -----------------------
-        # Parameters:
-
-        user = "ubuntu"
-
-        # -----------------------
-        # Install singularity:
-        print(" - installing singularity aptitude sources")
-        wgetproc = subprocess.call(["wget","http://neuro.debian.net/lists/xenial.us-ca.full","-O","/etc/apt/sources.list.d/neurodebian.sources.list"])
-
-        print(" - installing singularity aptitude key")
-        keyupdatecmd = ["apt-key","adv","--recv-keys","--keyserver","hkp://pool.sks-keyservers.net:80","0xA5D32F012649A5A9"]
-        keyupdateproc = subprocess.call(keyupdatecmd)
-        # this sometimes fails. :(
-        # redirect output to string,
-        # check string for "failed", 
-        # retry if true
-
-        print(" - updating aptitude repositories")
-        aptupdatecmd = ["apt-get","-y","update"]
-        subprocess.call(aptupdatecmd)
-
-        print(" - installing singularity")
-        aptinstallcmd = ["apt-get","-y","install"]
-        subprocess.Popen(aptinstallcmd+["singularity-container"])
-        # this sometimes complains
-        # E: Setting in Stop via TCSAFLUSH for stdin failed! - tcsetattr (5: Input/output error)
-        # E: Setting in Stop via TCSAFLUSH for stdin failed! - tcsetattr (5: Input/output error)
-        
         print("     ~~*~~ ~~*~~ ~~*~~ SUCCESS! ~~*~~ ~~*~~ ~~*~~\n")
         print("     Singularity is now installed.")
         print()
