@@ -55,10 +55,19 @@ def install_snakemake_the_slightly_easier_way():
         if(rc != 0):
             raise Exception()
 
+
+        print(" - Installing packages")
+        # psutil required for snakemake benchmarking
+        rc = subprocess.call([pipbin,"install","psutil"])
+        if(rc != 0):
+            raise Exception()
+
+
         print(" - Installing snakemake")
         rc = subprocess.call([pipbin,"install","snakemake"])
         if(rc != 0):
             raise Exception()
+
 
         print("     ~~*~~ ~~*~~ ~~*~~ SUCCESS! ~~*~~ ~~*~~ ~~*~~\n")
         print("     Snakemake is now installed.")
