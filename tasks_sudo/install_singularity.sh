@@ -15,6 +15,9 @@ wget https://github.com/singularityware/singularity/releases/download/${VERSION}
 # unpack singularity
 tar xvf singularity-${VERSION}.tar.gz
 
+# cd
+cd singularity-${VERSION}
+
 # configure singularity
 ./configure --prefix=/usr/local
 
