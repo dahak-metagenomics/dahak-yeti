@@ -2,7 +2,9 @@
 #
 # instal singularity from source
 
-VERSION="2.5"
+VERSION="2.5.1"
+
+cd /tmp
 
 # prepare to install
 apt-get install -y libarchive-dev
@@ -24,3 +26,4 @@ make install
 
 # remove singularity tarball
 rm -f singularity-${VERSION}.tar.gz 
+
