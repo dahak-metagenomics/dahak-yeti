@@ -8,7 +8,7 @@
 # python, snakemake, and singularity.)
 #
 # Run as a one-shot installer:
-# bash <( curl https://raw.githubusercontent.com/charlesreid1/dahak-yeti/master/cloud_init/cloud_init.sh )
+# bash <( curl https://raw.githubusercontent.com/dahak-metagenomics/dahak-yeti/master/cloud_init/cloud_init.sh )
 set -x
 
 # ubuntu AMI provides this non-root user by default :)
