@@ -47,7 +47,7 @@ To run the sudo init script, which calls several other scripts, run:
 
 ```
 # as the sudo user:
-$PWD/sudo_init/sudo_init.sh
+$PWD/tasks_sudo/sudo_init.sh
 ```
 
 ### Step 3: Run User Init Script
@@ -56,10 +56,10 @@ To run the user init script, run:
 
 ```
 # as the regular dahak user, 
-$PWD/sudo_init/sudo_init.sh
+$PWD/tasks_user/user_init.sh
 
 # or if you are still sudo,
-sudo -H -i -u dahak $PWD/sudo_init/sudo_init.sh
+sudo -H -i -u dahak $PWD/tasks_user/user_init.sh
 ```
 
 ## Using the Dotfiles
@@ -94,4 +94,11 @@ GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 git config --global user.name "$GIT_AUTHOR_NAME"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
 ```
+
+Note that if you are pushing to Github, you should add the private key
+from your AWS node (which is located at `$HOME/.ssh/id_rsa.pub`) to 
+your list of authorized public keys in your Github account settings page.
+
+
+
 

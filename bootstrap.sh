@@ -10,15 +10,13 @@ git pull origin master;
 function doIt() {
 	rsync \
 		--exclude ".git/" \
-		--exclude "bootstrap.sh" \
 		--exclude "cloud_init" \
 		--exclude "img" \
-		--exclude "gen_ssh_keys.sh" \
 		--exclude "tasks_sudo" \
 		--exclude "tasks_user" \
+		--exclude "LICENSE" \
 		--exclude "README.md" \
 		--exclude "TODO.md" \
-		--exclude "LICENSE" \
 		-avh --no-perms . ~;
 	source ~/.bash_profile;
 }
