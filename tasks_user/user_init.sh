@@ -3,7 +3,7 @@
 # initialize all the dotfiles stuff for user 
 set -x
 
-YETI="$HOME/dahak-yeti"
+YETI="$HOME/yeti"
 git clone https://github.com/dahak-metagenomics/dahak-yeti $YETI
 
 cd $YETI/tasks_user

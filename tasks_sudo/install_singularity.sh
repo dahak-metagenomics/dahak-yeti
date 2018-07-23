@@ -7,7 +7,7 @@ VERSION="2.5.1"
 cd /tmp
 
 # prepare to install
-apt-get install -y libarchive-dev
+apt-get install -y libarchive-dev python python3
 
 # download singularity
 wget https://github.com/singularityware/singularity/releases/download/${VERSION}/singularity-${VERSION}.tar.gz
@@ -29,4 +29,3 @@ make install
 
 # remove singularity tarball
 rm -f singularity-${VERSION}.tar.gz 
-

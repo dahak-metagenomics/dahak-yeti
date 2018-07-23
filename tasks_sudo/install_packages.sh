@@ -19,5 +19,7 @@ apt-get install -y aptitude
 apt-get install -y build-essential
 apt-get install -y curl
 apt-get install -y wget
+apt-get install -y graphviz
+apt-get install -y awscli
 
 apt -y autoremove
