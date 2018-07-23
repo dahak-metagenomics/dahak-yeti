@@ -13,7 +13,7 @@ then
     ./set_machine_name.sh $1
     ./get_docker.sh
     ./make_temp.sh
-    ./install_singularity.sh
+    ./install_singularity.sh &> /tmp/install_singularity_log
 
 else
 
