@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
 
 
+git() {
+    if [[ $@ == "push origin master" ]]; then
+        echo "nope"
+    else
+        command git "$@"
+    fi
+}
+
+
 # lazy af
 alias mk='make'
 alias smk='snakemake'
@@ -103,6 +112,50 @@ alias c='clear'
 
 
 
+# tmux shortcuts
+# constructed with help from https://robots.thoughtbot.com/a-tmux-crash-course
+
+# tmux sessions
+# ---------------
+
+# tmux list sessions: tls = tmux list-sessions
+alias tls='tmux list-sessions'
+
+# tmux new session: tns [name] = tmux new session named [name]
+alias tns='tmux new -s'
+
+# tmux deatch session: td = tmux detach (detach current session)
+alias td='tmux detach'
+
+# tmux windows
+# ---------------
+
+# tmux list windows
+
+# tmux new window: tnw [name] = PREFIX + C
+alias tnw='tmux new-window'
+
+# tmux attach window
+# taw [number]
+# PREFIX + (0-9)
+alias taw='tmux select-window -t'
+
+# tmux rename window
+# trw [name]
+# PREFIX + ,
+alias trw='tmux rename-window '
+
+# tmux vertical split window
+# tvsp
+# PREFIX + "
+tvsp='tmux split-window'
+
+# tmux horizontal split window
+# thsp
+thsp='tmux split-window -h'
+
+
+
 
 # typo aliases
 # ---------------
@@ -122,8 +175,16 @@ alias back='cd $OLDPWD'
 
 
 
+
+
+
 ####################
 # modified mathias
+
+# Shortcuts
+alias g="git"
+alias h="history"
+
 
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
