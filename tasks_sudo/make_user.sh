@@ -14,9 +14,10 @@ fi
 
 set -x
 
-REGUSER="florence"
+REGUSER="matomo"
 
-mkdir /home/florence
+mkdir /home/${REGUSER}
+chown -R ${REGUSER}:${REGUSER} /home/${REGUSER}
 
 useradd -s /bin/bash -d /home/$REGUSER $REGUSER
 usermod -a -G ubuntu $REGUSER
