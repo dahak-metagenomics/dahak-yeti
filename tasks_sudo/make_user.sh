@@ -15,6 +15,7 @@ fi
 set -x
 
 USERNAME="matomo"
+#USERNAME="florence"
 
 sudo mkdir -p /home/${USERNAME}
 
