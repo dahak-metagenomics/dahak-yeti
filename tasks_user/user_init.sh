@@ -19,4 +19,5 @@ cd ../
 ./install_pyenv.py
 . ~/.bash_profile
 ./activate_conda.py
+./install_virtualenv.py
 ./install_snakemake.py
