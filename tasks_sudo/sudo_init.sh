@@ -8,6 +8,8 @@ then
 
     ./set_time.sh
     ./install_packages.sh
+    ## this line may break something
+    #./install_netdata.sh
     ./fix_ssh.sh
     ./gen_ssh_keys.sh
     ./set_machine_name.sh $1

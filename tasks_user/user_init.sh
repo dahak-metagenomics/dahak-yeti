@@ -16,7 +16,6 @@ cd ../
 . ~/.bash_profile
 ./prepare_vim.sh
 ./gen_ssh_keys.sh
-./install_netdata.sh
 ./install_pyenv.py
 . ~/.bash_profile
 ./activate_conda.py
