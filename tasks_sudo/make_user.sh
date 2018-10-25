@@ -23,6 +23,8 @@ useradd -s /bin/bash -d /home/$REGUSER $REGUSER
 usermod -a -G ubuntu $REGUSER
 usermod -a -G sudo $REGUSER
 
+echo "${REGUSER} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${REGUSER}
+
 # copy the user init script
 wget https://raw.githubusercontent.com/dahak-metagenomics/dahak-yeti/master/tasks_user/user_init.sh -O /home/$REGUSER/user_init.sh
 chown $REGUSER:$REGUSER /home/$REGUSER/user_init.sh
