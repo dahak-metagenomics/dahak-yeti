@@ -16,7 +16,7 @@ set -x
 
 REGUSER="florence"
 
-mkdir /home/florence
+mkdir /home/$REGUSER
 
 useradd -s /bin/bash -d /home/$REGUSER $REGUSER
 usermod -a -G ubuntu $REGUSER
