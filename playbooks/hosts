@@ -1,0 +1,4 @@
+[servers]
+v1 ansible_host=127.0.0.1 ansible_port=2222
+v2 ansible_host=127.0.0.1 ansible_port=2201
+v3 ansible_host=127.0.0.1 ansible_port=2202
