@@ -1,0 +1,9 @@
+---
+# 
+# this is the principal dahak-yeti playbook
+#
+- name: prepare worker nodes to run dahak workflows
+  hosts: servers
+  roles:
+     - { role: lfit.python-install }
+
