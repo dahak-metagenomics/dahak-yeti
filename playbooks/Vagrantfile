@@ -6,20 +6,27 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.insert_key = false
 
   config.vm.define "vagrant1" do |vagrant1|
+
     vagrant1.vm.box = "ubuntu/xenial64"
     vagrant1.vm.network "forwarded_port", guest: 80, host: 8877
     vagrant1.vm.network "forwarded_port", guest: 443, host: 7443
+
+    #vagrant1.vm.hostname = "yeti1"
+
+    #vagrant1.vm.provider "virtualbox" do |v|
+    #    v.name = "yeti1"
+    #    v.memory = 1024
+    #    v.cpus = 1
+    #    v.linked_clone = true
+    #    v.gui = false
+    #end
+
+    vagrant1.vm.provision "ansible" do |ansible|
+        ansible.playbook = "provision.yml"
+        ansible.inventory_path = "hosts"
+    end
+
   end
 
-  #config.vm.define "vagrant2" do |vagrant2|
-  #  vagrant2.vm.box = "ubuntu/xenial64"
-  #  vagrant2.vm.network "forwarded_port", guest: 80, host: 8878
-  #  vagrant2.vm.network "forwarded_port", guest: 443, host: 7444
-  #end
-  #config.vm.define "vagrant3" do |vagrant3|
-  #  vagrant3.vm.box = "ubuntu/xenial64"
-  #  vagrant3.vm.network "forwarded_port", guest: 80, host: 8879
-  #  vagrant3.vm.network "forwarded_port", guest: 443, host: 7445
-  #end
 end
 
