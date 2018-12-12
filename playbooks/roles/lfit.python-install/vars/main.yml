@@ -1,2 +1,3 @@
 ---
 python_packages: '{{ python_packages_distro }}'
+pyenv_packages: '{{ pyenv_packages_distro }}'
