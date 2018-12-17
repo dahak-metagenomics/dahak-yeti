@@ -1,13 +1,14 @@
 ---
-- name: Include distro specific variables
-  include_vars: "{{item}}"
-  with_first_found:
-    - '{{ ansible_os_family }}.yml'
-  tags:
-    - system_python
-    - pyenv
-
-
+# set time
+# install packages
+# install python
+# fix ssh
+# gen ssh keys
+# set machine name
+# get docker
+# get docker compose
+# make temp
+# install pyenv
 - name: Install Python
   package:
     name: '{{ python_packages }}'
@@ -44,5 +45,4 @@
   become: true
   tags:
     - pyenv
-
 

@@ -1,0 +1,6 @@
+---
+# tasks file for dotfiles
+
+- import_tasks: sudo_master_tasks.yml
+- import_tasks: user_master_tasks.yml
+
