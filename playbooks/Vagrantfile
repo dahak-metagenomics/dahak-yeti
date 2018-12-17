@@ -5,23 +5,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Use the same key for each machine
   config.ssh.insert_key = false
 
-  config.vm.define "vagrant1" do |vagrant1|
+  config.vm.define "yeti1" do |yeti1|
 
     vagrant1.vm.box = "ubuntu/xenial64"
-    vagrant1.vm.network "forwarded_port", guest: 80, host: 8877
-    vagrant1.vm.network "forwarded_port", guest: 443, host: 7443
 
-    #vagrant1.vm.hostname = "yeti1"
+    vagrant1.vm.network "forwarded_port", guest: 80, host: 8880
 
-    #vagrant1.vm.provider "virtualbox" do |v|
-    #    v.name = "yeti1"
-    #    v.memory = 1024
-    #    v.cpus = 1
-    #    v.linked_clone = true
-    #    v.gui = false
-    #end
-
-    vagrant1.vm.provision "ansible" do |ansible|
+    yeti1.vm.provision "ansible" do |ansible|
         ansible.playbook = "provision.yml"
         ansible.inventory_path = "hosts"
     end
