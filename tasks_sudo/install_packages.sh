@@ -1,6 +1,9 @@
 #!/bin/bash
 # 
 # install some essential packages
+#
+# also see
+# https://github.com/pyenv/pyenv/wiki/Common-build-problems
 
 if [ "$(id -u)" != "0" ]; then
     echo ""
